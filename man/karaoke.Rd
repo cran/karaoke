@@ -25,7 +25,7 @@ sometimes optional sampling frequency
 data(orni)
 data(peewit)
 data(tico)
-#Extend all the samples to at be least 20 seconds long.
+#Extend all the samples to be at least 20 seconds long.
 for(loop in 1:5) orni<-pastew(orni,orni,f=22050, output="Wave")
 for(loop in 1:5) peewit<-pastew(peewit,peewit,f=22050, output="Wave")
 for(loop in 1:5) tico<-pastew(tico,tico,f=22050, output="Wave")
@@ -44,6 +44,8 @@ slot(wobj,"pcm")<-FALSE
 writeWave(wobj, filename="song.wav")
 #Make the karaoke version: the vocal from "tico" is removed.
 karaoke(infile="song.wav", outfile="song4karaoke.wav")
+file.remove("song.wav")
+file.remove("song4karaoke.wav")
 }
 \references{
 Well known trick.
